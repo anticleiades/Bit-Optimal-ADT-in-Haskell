@@ -1,0 +1,17 @@
+resolver: lts-22.44
+
+
+packages:
+- .
+
+extra-deps:
+  - hw-rankselect-0.13.4.1
+  - hw-rankselect-base-0.3.4.1
+  - hw-balancedparens-0.4.1.3
+  - hw-bits-0.7.2.2
+  - hw-prim-0.6.3.2
+  - hw-int-0.0.2.0
+  - hw-string-parse-0.0.0.5
+  - hw-excess-0.2.3.0        
+  - bits-extra-0.0.2.3       
+  - ghc-datasize-0.2.7

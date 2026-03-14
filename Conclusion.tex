@@ -1,0 +1,22 @@
+\section{Conclusion}
+
+This report describes (read, will describe) a library for automatically deriving succinct data structures using the Haskell type system. By separating structural topology from data payloads and encoding the topology using DFUDS (Depth-First Unary Degree Sequence), we obtain a compact representation of trees that avoids traditional pointer-heavy layouts. This separation allows traversals to operate over contiguous memory rather than following chains of heap pointers. As a result, many operations reduce to cache-friendly operation over bitvectors, dramatically improving memory locality and reducing garbage collection overhead.
+
+\subsection{Current Limitations}
+The current prototype has several limitations that will be addressed in the next development phase:
+\begin{itemize}
+  \item \textbf{Only in the beta}, the DFUDS construction is implemented in a sub-optimal way, which is asymptotically inefficient. Our final version will construct the topology bitvector directly, without going through intermediate lists or repeated vector updates.
+  \item The implementation currently supports only explicitly defined binary trees rather than arbitrary algebraic tree structures derived automatically via metaprogramming or any alternative.
+
+  \item Navigational operations over the succinct representation remain limited. In particular, we aim to implement a Succinct Tree Zipper.
+\end{itemize}
+
+\subsection{Future Work}
+Several directions remain for extending this work:
+\begin{itemize}
+  \item \textbf{Generic Derivation}: Extend the system to automatically support arbitrary algebraic data types by deriving succinct representations from sums and products.
+
+  \item \textbf{Computational Logic Applications}: Evaluate the library in practical settings such as model checking and measuring whether succinct representations improve memory usage and processing bounds.
+
+  \item \textbf{LOUDS Representation (if we have enough time)}: Introduce support for the Level Order Unary Degree Sequence (LOUDS) representation to enable efficient breadth-first navigation and accelerate BFS-style algorithms.
+\end{itemize}

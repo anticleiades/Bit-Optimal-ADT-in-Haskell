@@ -1,0 +1,55 @@
+name: report
+version: 0.1.0.0
+synopsis: My Haskell project
+description: See report.pdf
+maintainer: My Name <my.email@example.com>
+category: Logic
+spec-version: 0.36.0
+
+ghc-options: -Wall
+
+dependencies:
+  - QuickCheck
+  - base
+  - containers
+  - directory
+  - lens
+  - mtl
+  - parsec
+  - random
+  - template-haskell
+  - vector
+  - tasty-bench
+  - deepseq
+  - hw-rankselect
+  - hw-rankselect-base
+  - hw-bits    
+  - ghc-datasize
+
+library:
+  source-dirs: lib
+
+executables:
+  myprogram:
+    main: Main.lhs
+    source-dirs: exec
+    ghc-options: # needed for benchmark I guess
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - report
+      - hw-rankselect
+      - hw-rankselect-base 
+      - hw-bits   
+      - ghc-datasize       
+
+
+tests:
+  simpletests:
+    main: simpletests.lhs
+    source-dirs: test
+    dependencies:
+      - report
+      - QuickCheck
+      - hspec

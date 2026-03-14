@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\input{latexmacros.tex}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage{upgreek} 
+
+\title{(Near) Bit-Optimal Representations of ADT in Haskell}
+\author{Giuliano Gorgone, Nan Wang\\(alphabetical order)}
+\date{\today}
+\hypersetup{pdfauthor={Giuliano Gorgone, Nan Wang\\(alphabetical order)}, pdftitle={Type-Informed Compression: Succinct (Runtime) Representations Derived from Haskell Types. }}
+
+\begin{document}
+
+\newtheorem{remark}{Remark}
+\maketitle
+
+\begin{abstract}
+    In this initial version of project, we aim to implement \emph{succinct trees}---data structures that provide almost information-theoretically optimal space bounds for tree representations. Furthermore, we aim leverage the Haskell type system to automatically derive (near) bit-optimal representations for arbitrary algebraic data types. Our ultimate goal is to provide a transparent interface that seamlessly utilizes the most efficient bit-level layout and its corresponding operations, eliminating the need for complex manual bit-manipulation. 
+
+    In preliminary experiments, our succinct tree implementation, albeit in a beta stage, achieves significantly faster traversal times—often by one or more orders of magnitude—while using at least $2\times$ less memory than a conventional pointer-based baseline.
+\end{abstract}
+
+\vfill
+
+\tableofcontents
+
+\clearpage
+
+
+\input{intro.tex}
+%\input{Howto.tex}
+
+\input{exec/Main.lhs}
+
+\input{test/test.lhs}
+
+\input{Conclusion.tex}
+
+\addcontentsline{toc}{section}{Bibliography}
+\bibliographystyle{alpha}
+\bibliography{references.bib}
+
+\end{document}
